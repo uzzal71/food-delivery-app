@@ -2,6 +2,7 @@ import express from "express";
 import Config from "./config";
 import os from "os"
 import formData from "express-form-data";
+import RouteNotFoundExceptionMiddleware from "./app/http/middleware/RouteNotFoundExceptionMiddleware";
 
 const app = express();
 const options = {
