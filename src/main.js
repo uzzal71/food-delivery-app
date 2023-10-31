@@ -2,7 +2,7 @@ import express from "express";
 import Config from "./config";
 import os from "os"
 import formData from "express-form-data";
-import RouteNotFoundExceptionMiddleware from "./app/http/middleware/RouteNotFoundExceptionMiddleware";
+import RouteNotFoundExceptionMiddleware from "@Middleware/RouteNotFoundExceptionMiddleware";
 
 const app = express();
 const options = {
@@ -22,6 +22,8 @@ app.get("/", (req, res) => {
         message: "food delivery app"
     })
 });
+
+app.use(RouteNotFoundExceptionMiddleware);
 
 app.listen(Config.APP_PORT, () => {
     console.log('\x1b[32m', `[Node Server Running] Server running on port ${Config.APP_PORT || 3000}`, '\x1b[0m')
