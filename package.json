@@ -3,30 +3,8 @@
   "version": "1.0.0",
   "description": "Create a food delivery application using nodeJs, ExpressJs, PostgreSQL",
   "main": "index.js",
-  "paths": {
-    "@/*": ["./src/*"],
-    "@Config/*": ["./src/config/*"],
-    "@Database/*": ["./src/database/*"],
-    "@Routes/*": ["./src/routes/*"],
-    "@Server/*": ["./src/server/*"],
-    "@App/*": ["./src/app/*"],
-    "@Enums/*": ["./src/app/enums/*"],
-    "@Helpers/*": ["./src/app/helper/*"],
-    "@Controllers/*": ["./src/app/http/controllers/*"],
-    "@Constants/*": ["./src/app/http/constants/*"],
-    "@Middleware/*": ["./src/app/http/middleware/*"],
-    "@Requests/*": ["./src/app/http/requests/*"],
-    "@Response/*": ["./src/app/http/responses/*"],
-    "@Utils/*": ["./src/app/http/utility/*"],
-    "@Interfaces/*": ["./src/app/interfaces/*"],
-    "@Entities/*": ["./src/app/interfaces/entities/*"],
-    "@Models/*": [ "./src/app/models/*"],
-    "@Repositories/*": ["./src/app/repositories/*"],
-    "@Services/*": ["./src/app/services/*"],
-    "@Provider/*": ["./src/app/providers/*"]
-  },  
   "scripts": {
-    "start": "nodemon -r esm -r module-alias/register ./src/main.js"
+    "start": "nodemon -r esm ./src/main.js"
   },
   "keywords": [],
   "author": "",
@@ -37,8 +15,5 @@
     "express": "^4.18.2",
     "express-form-data": "^2.0.22",
     "nodemon": "^3.0.1"
-  },
-  "devDependencies": {
-    "module-alias": "^2.2.3"
   }
 }
