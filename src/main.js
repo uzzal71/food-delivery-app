@@ -19,7 +19,7 @@ app.use(formData.union());
 app.get("/", (req, res) => {
     res.status(200).json({
         status: true,
-        message: "food delivery app"
+        message: "food delivery application"
     })
 });
 
