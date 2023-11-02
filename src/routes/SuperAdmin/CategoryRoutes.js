@@ -1,9 +1,9 @@
 import express from "express";
+import { CategoryController } from "../../app/http/controllers/SuperAdmin/CategoryController";
 
 const CategoryRoutes = express.Router();
+const CategoryObject = new CategoryController();
 
-CategoryRoutes.get("/", (req, res) => {
-    res.status(200).json({ message: "welcome category routes" })
-});
+CategoryRoutes.get("/", CategoryObject.getCategories);
 
 export default CategoryRoutes;

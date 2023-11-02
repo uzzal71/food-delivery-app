@@ -1,11 +1,24 @@
+import { CategoryService } from "../../../services/SuperAdmin/CategoryService"
+import { ResponseError, ResponseSuccess } from "../../utility/HttpResponse";
+
 export class CategoryController {
+    constructor() {
+        this.categoryService = new CategoryService();
+    }
      /**
      * @objective achive all categories
      * @method get
      * @req parameter received
      * @res parameter received
      */
-    getCategories = async(req, res) => {}
+    getCategories = async(req, res) => {
+        try {
+            const result = await this.categoryService.getCategories(req);
+            return ResponseSuccess(res, 200, "Category get successfully", result);
+        } catch (error) {
+            return ResponseError(res, error.statusCode, error.message());
+        }
+    }
     /**
      * @objective create a single category
      * @method post
