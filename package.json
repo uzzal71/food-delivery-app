@@ -4,7 +4,8 @@
   "description": "Create a food delivery application using nodeJs, ExpressJs, PostgreSQL",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm ./src/main.js"
+    "start": "nodemon -r esm ./src/main.js",
+    "prod": "node -r esm ./src/main.js"
   },
   "keywords": [],
   "author": "",

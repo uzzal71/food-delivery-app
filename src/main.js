@@ -23,7 +23,9 @@ app.use(formData.union());
 app.get("/", (req, res) => {
     res.status(200).json({
         status: true,
-        message: "food delivery application"
+        statusCode: 200,
+        message: `Server running on port ${Config.APP_PORT || 3000}`,
+        apiUrl: `${process.env.APP_URL || 'http://localhost:3000' }/v1`,
     })
 });
 /**
