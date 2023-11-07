@@ -1,9 +1,11 @@
 import express from "express";
-import Config from "./config";
-import os from "os"
 import formData from "express-form-data";
+import os from "os";
 import RouteNotFoundExceptionMiddleware from "./app/http/middleware/RouteNotFoundExceptionMiddleware";
+import Config from "./config";
+import sequelize from "./config/sequelize";
 import routeConfig from "./routes";
+import connect from "./server/dbConnect";
 
 const app = express();
 /**
@@ -34,8 +36,18 @@ app.get("/", (req, res) => {
 routeConfig(app);
 app.use(RouteNotFoundExceptionMiddleware);
 /**
+ * Database connection
+ */
+connect()
+  .then(() => {
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+/**
  * App listen
  */
-app.listen(Config.APP_PORT, () => {
+app.listen(Config.APP_PORT, async() => {
     console.log('\x1b[32m', `[Node Server Running] Server running on port ${Config.APP_PORT || 3000}`, '\x1b[0m')
+    await sequelize.sync({alter:true});
 })
