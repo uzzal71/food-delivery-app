@@ -1,9 +1,8 @@
 import express from "express";
-import { CategoryController } from "../../app/http/controllers/SuperAdmin/CategoryController";
+import { getCategories } from "../../app/http/controllers/SuperAdmin/CategoryController";
 
 const CategoryRoutes = express.Router();
-const CategoryObject = new CategoryController();
 
-CategoryRoutes.get("/", CategoryObject.getCategories);
+CategoryRoutes.get("/", getCategories);
 
 export default CategoryRoutes;
